@@ -7,6 +7,9 @@
     <version>1.0-SNAPSHOT</version>
     <name>flm Maven Webapp</name>
     <url>http://maven.apache.org</url>
+    <properties>
+        <org.springframework.version>4.0.0.RELEASE</org.springframework.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -14,8 +17,28 @@
             <version>3.8.1</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>4.2.0.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>flm</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>
